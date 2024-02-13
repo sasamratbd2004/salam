@@ -1,0 +1,22 @@
+---
+- name: list variable
+  hosts: cisco_devices
+  gather_facts: no
+
+  tasks:
+    - name: sh list of command
+      cisco.ios.ios_command:
+        commands:
+          - sh ip int bri
+          - sh version
+          - sh inventory
+      register: output
+#    - name: print all output
+#      ansible.builtin.debug:
+#        var: output
+    - name: print sh version
+      ansible.builtin.debug:
+        var: output.stdout_lines[2]
+    - name: print sh inventory
+      ansible.builtin.debug:
+        var: output.stdout_lines[1]
