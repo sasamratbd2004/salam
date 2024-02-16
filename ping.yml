@@ -1,6 +1,6 @@
 ---
 - name: Test Connectivity to Cisco Devices
-  hosts: Cisco
+  hosts: Router
   gather_facts: no
   connection: network_cli
 
