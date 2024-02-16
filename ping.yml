@@ -6,7 +6,7 @@
 
   tasks:
     - name: Ping
-      cisco.ios.ios_ping:
+      cisco.ios.ios_command:
         dest: "{{ item }}"
       loop:
         - 192.168.2.50
