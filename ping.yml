@@ -1,12 +1,12 @@
 ---
 - name: Test Connectivity to Cisco Devices
-  hosts: Router
+  hosts: IOS
   gather_facts: no
   connection: network_cli
 
   tasks:
     - name: Ping
-      cisco.ios.ios_command:
+      cisco.ios.ios_ping:
         dest: "{{ item }}"
       loop:
         - 192.168.2.50
