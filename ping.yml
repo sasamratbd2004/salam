@@ -1,22 +1,7 @@
----
-- name: Test Connectivity to Cisco Devices
-  hosts: IOS
+- name: Test Ping Connectivity
+  hosts: all
   gather_facts: no
-  connection: network_cli
 
   tasks:
-    - name: Ping
-      cisco.ios.ios_ping:
-        dest: "{{ item }}"
-      loop:
-        - 192.168.2.50
-        - 192.168.2.60
-        - 172.16.1.10
-        - 172.16.2.20
-      register: ping_results
-
-    - name: Show Ping Results
-      debug:
-        msg: "{{ item.item }} is reachable"
-      loop: "{{ ping_results.results }}"
-      when: item.success is defined and item.success
+    - name: Ping Test
+      ansible.builtin.ping:
