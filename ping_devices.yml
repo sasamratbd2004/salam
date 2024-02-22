@@ -1,0 +1,17 @@
+---
+- name: Ping Cisco IOS devices
+  hosts: IOS  
+  gather_facts: no
+  collections:
+    - cisco.ios
+
+  tasks:
+    - name: Check connectivity with ios_ping
+      cisco.ios.ios_ping:
+        dest: "{{ inventory_hostname }}" 
+        count: 5  
+      register: ping_result  
+
+    - name: Show ping results
+      debug:
+        msg: "{{ ping_result }}" 
