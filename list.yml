@@ -1,7 +1,8 @@
 ---
 - name: list variable
-  hosts: IOS
+  hosts: R1
   gather_facts: no
+  connection: network_cli
 
   tasks:
     - name: sh list of command
