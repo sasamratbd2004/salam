@@ -1,0 +1,24 @@
+---
+- name: create multiple vlan in switch 
+  hosts: Switches
+  connection: network_cli
+  gather_facts: no 
+  vars:
+    vlans:
+      50: "MGMT50"
+      60: "IT60"
+      70: "SALES70"
+      80: "HR80"
+
+  tasks:
+  - name: create vlan in switches via playbook
+    ios.ios_config:
+      lines: 
+        - "vlan {{item.key}}"
+        - "vlan {{item.value}}"
+    
+    with_dict: "{{vlans}}"
+    register: output
+  - name: lines output
+    ansible.builtin.debug:
+      var: output.stdout_lines
