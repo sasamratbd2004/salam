@@ -2,8 +2,7 @@
 - name: Ping Cisco IOS devices
   hosts: all
   gather_facts: no
-  collections:
-    - cisco.ios
+  connection: network_cli
 
   tasks:
     - name: Check connectivity with ios_ping
