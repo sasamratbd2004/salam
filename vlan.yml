@@ -12,7 +12,7 @@
 
   tasks:
   - name: create vlan in switches via playbook
-    ios.ios_config:
+    ios_config:
       lines: 
         - "vlan {{item.key}}"
         - "vlan {{item.value}}"
