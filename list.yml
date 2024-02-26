@@ -5,7 +5,7 @@
 
   tasks:
     - name: sh list of command
-      cisco.ios.ios_command:
+      ios_command:
         commands:
           - sh ip int bri
         
