@@ -14,8 +14,8 @@
   - name: create vlan in switches via playbook
     ios_config:
       lines: 
-        - "vlan {{item.key}}"
-        - "vlan {{item.value}}"
+        - no "vlan {{item.key}}"
+        - no "vlan {{item.value}}"
     
     with_dict: "{{vlans}}"
     register: output
