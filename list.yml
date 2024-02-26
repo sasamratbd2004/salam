@@ -1,6 +1,6 @@
 ---
 - name: list variable
-  hosts: R1
+  hosts: all
   gather_facts: no
   connection: network_cli
 
