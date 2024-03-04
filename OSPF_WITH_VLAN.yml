@@ -1,6 +1,6 @@
 ---
 - name: OSPF Playbook
-  hosts: All devices
+  hosts: Routers
   connection: network_cli
   gather_facts: no
 
