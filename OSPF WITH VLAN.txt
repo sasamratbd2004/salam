@@ -1,0 +1,40 @@
+---
+- name: OSPF Playbook
+  hosts: IOS
+  connection: network_cli
+  gather_facts: no
+
+  tasks:
+  - name: config ospf R1
+
+    ios_config:
+         lines:
+             - int loopback 0
+             - ip add 1.1.1.1 255.255.255.255
+             - router ospf 1
+             - network 0.0.0.0 255.255.255.255 area 0
+
+    when: " inventory_hostname == 'R1' "
+
+
+
+  - name: config ospf R2
+
+    ios_config:
+         lines:
+             - int loopback 0
+             - ip add 2.2.2.2 255.255.255.255
+             - router ospf 1
+             - network 0.0.0.0 255.255.255.255 area 0
+
+    when: " inventory_hostname == 'R2' "
+
+
+  - name: config vlan on Switch1
+
+    ios_config:
+         lines:
+             - vlan 100
+             - name test 100
+             - vlan 200
+             - name test 200
