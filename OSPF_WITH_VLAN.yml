@@ -1,6 +1,6 @@
 ---
 - name: OSPF Playbook
-  hosts: IOS
+  hosts: All devices
   connection: network_cli
   gather_facts: no
 
